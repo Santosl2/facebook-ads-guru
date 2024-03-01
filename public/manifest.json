@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Ads Guru",
+  "version": "1.0.0",
+  "description": "A basic example extension with only required keys",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "webRequest",
+    "debugger",
+    "webNavigation"
+  ],
+  "host_permissions": ["https://www.facebook.com/*", "https://*/*"]
+}
