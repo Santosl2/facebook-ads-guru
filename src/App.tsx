@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { useExecuteScript } from "./hooks/useExecuteScript";
 
@@ -40,7 +40,7 @@ function App() {
         return parseInt(adsCountPrev) - parseInt(adsCountCurrent);
       }
 
-      return -1;
+      return 1;
     });
 
     const root = document.querySelector(
