@@ -16,4 +16,6 @@ This is a small chrome extension to remove facebook ads without creative.
 8. Select the repository dist folder
 9. Enjoy!
 
+# Preview
+
 ![alt text](example.gif)
