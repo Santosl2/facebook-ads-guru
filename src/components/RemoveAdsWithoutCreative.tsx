@@ -1,4 +1,5 @@
 import { ADS_CREATIVE_COUNT_ELEMENT, ADS_ITENS_SELECTOR } from "../constants";
+import { useConfigContext } from "../contexts/ConfigContext";
 import { useExecuteScript } from "../hooks/useExecuteScript";
 
 interface RemoveAdsExecuteScriptProps {
@@ -7,6 +8,8 @@ interface RemoveAdsExecuteScriptProps {
 }
 
 export function RemoveAdsWithoutCreative() {
+  const { setConfig } = useConfigContext();
+
   const handleRemoveAds = useExecuteScript<RemoveAdsExecuteScriptProps>(
     (d) => {
       const { adsItensSelector, adsCreativeCountElement } = d!;
@@ -27,7 +30,18 @@ export function RemoveAdsWithoutCreative() {
     ]
   );
 
+  const onClickToRemoveAds = () => {
+    setConfig((prev) => ({
+      ...prev,
+      showAdsWithoutCreatives: !prev.showAdsWithoutCreatives,
+    }));
+
+    handleRemoveAds();
+  };
+
   return (
-    <button onClick={handleRemoveAds}>Remove all Ads without Creatives</button>
+    <button onClick={onClickToRemoveAds}>
+      Remove all Ads without Creatives
+    </button>
   );
 }
